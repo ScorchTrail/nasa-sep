@@ -1,0 +1,96 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s;
+}
+
+.modal--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal__content {
+  background-color: var(--space-black);
+  color: var(--starlight-white);
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(252, 61, 33, 0.15);
+  border: 2px solid var(--nasa-red);
+  border-radius: 50%;
+  color: var(--nasa-red);
+  font-size: 28px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.modal__close:hover {
+  background: rgba(252, 61, 33, 0.3);
+  transform: scale(1.1) rotate(90deg);
+}
+
+.modal__close:active {
+  background: var(--nasa-red);
+  color: var(--space-black);
+  transform: scale(0.95);
+}
+
+.modal__media-container {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__media-container img,
+.modal__media-container iframe,
+.modal__media-container video {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.modal__media-container iframe,
+.modal__media-container video {
+  min-height: 320px;
+}
+
+.modal__info h2 {
+  margin-top: 0;
+}
+
+.modal__info span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.modal__info p {
+  line-height: 1.6;
+}

@@ -1,0 +1,87 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(11, 61, 145, 0.25);
+  padding-bottom: 32px;
+  background-color: transparent;
+}
+
+.header__logo {
+  height: 56px;
+}
+
+.header__title {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+.header__subtitle {
+  max-width: 760px;
+  text-align: center;
+  color: rgba(244, 244, 249, 0.82);
+}
+
+.header__fact-box {
+  width: 100%;
+  max-width: 760px;
+  margin-top: 24px;
+  padding: 24px 28px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(244, 244, 249, 0.08);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.24);
+  text-align: center;
+}
+
+.header__fact-title {
+  color: rgba(244, 244, 249, 0.82);
+}
+
+.header__fact-text {
+  margin-top: 0.75rem;
+  color: rgba(244, 244, 249, 0.92);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.header__fact-status {
+  margin-top: 1rem;
+  color: var(--nasa-blue);
+  font-size: 0.95rem;
+}
+
+.header__fact-progress {
+  margin: 1rem auto 0;
+  width: 100%;
+  max-width: 360px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(244, 244, 249, 0.12);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.header__fact-progress--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header__fact-progress-bar {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--nasa-blue), var(--nasa-red));
+  animation: progressBar 2s ease-in-out infinite;
+}
+
+@keyframes progressBar {
+  0% { width: 0%; }
+  50% { width: 80%; }
+  100% { width: 0%; }
+}

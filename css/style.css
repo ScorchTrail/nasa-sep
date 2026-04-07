@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import "normalize.css";
+@import "blocks/header.css";
+@import "blocks/controls.css";
+@import "blocks/gallery.css";
+@import "blocks/card.css";
+@import "blocks/modal.css";
+@import "blocks/footer.css";
+
+:root {
+  --space-black: #0b0d17;
+  --nasa-blue: #0B3D91;
+  --nasa-red: #FC3D21;
+  --starlight-white: #f4f4f9;
+  --surface-white: #ffffff;
+  --surface-gray: #edf2f7;
+  --text-dark: #101827;
+}
+
+body {
+  margin: 0;
+  padding: 64px;
+  min-height: 100vh;
+  background-color: var(--space-black);
+  color: var(--starlight-white);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  color: var(--starlight-white);
+}
+
+h1 {
+  font-size: clamp(2.75rem, 5vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  margin-top: 0.75rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: rgba(244, 244, 249, 0.92);
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.loading {
+  display: none;
+}
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Space Explorer</title>
+    <link rel="icon" href="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <img class="header__logo" src="https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg" alt="NASA Logo">
+        <h1 class="header__title">NASA Space Explorer</h1>
+        <h2 class="header__subtitle">Explore 9 days of NASA’s Astronomy Picture of the Day archive.</h2>
+        <div class="header__fact-box">
+            <h3 class="header__fact-title">Did you know?</h3>
+            <p class="header__fact-text"></p>
+            <p class="header__fact-status"></p>
+            <div class="header__fact-progress">
+                <span class="header__fact-progress-bar"></span>
+            </div>
+        </div>
+    </header>
+    <section class="controls">
+        <label for="dateInput">Select a date:</label>
+        <input type="date" id="dateInput" class="controls__input">
+        <button id="fetchBtn" class="controls__button">Get Space Images</button>
+    </section>
+    <main class="main">
+        <div id="loading" class="loading"></div>
+        <section id="gallery" class="gallery"></section>
+    </main>
+    <div id="modal" class="modal">
+        <div class="modal__content">
+            <button id="closeModal" class="modal__close">&times;</button>
+            <div id="modalMediaContainer" class="modal__media-container"></div>
+            <div class="modal__info">
+                <h2 id="modalTitle"></h2>
+                <span id="modalDate"></span>
+                <p id="modalExplanation"></p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__section">
+                <h3 class="footer__heading">A Project In Partnership</h3>
+                <div class="footer__logos">
+                    <img class="footer__logo" src="images/asu_sunburst_logo_mobile_125px.png" alt="ASU Logo">
+                    <span class="footer__divider"></span>
+                    <img class="footer__logo" src="https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg" alt="NASA Logo">
+                </div>
+                <p class="footer__tagline">Exploring the cosmos through Arizona State University & NASA partnerships</p>
+            </div>
+            <div class="footer__section">
+                <p class="footer__credit">Developed by <strong>Vedant Patel</strong></p>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2026 NASA Space Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
