@@ -55,25 +55,51 @@ function getStartDate(endDate) {
 }
 
 async function loadFact() {
-  factTextEl.textContent = 'Loading a fresh space fact...';
+  factTextEl.textContent = 'Loading a live space fact...';
   factStatusEl.style.display = 'none';
   factProgressEl.classList.add('header__fact-progress--active');
 
   try {
-    // Try fetching from a random facts API
-    const response = await fetch('https://uselessfacts.jsph.pl/random.json?language=en');
-    if (response.ok) {
-      const factData = await response.json();
-      factTextEl.textContent = factData.text || getFallbackFact();
-    } else {
-      factTextEl.textContent = getFallbackFact();
-    }
+    factTextEl.textContent = await fetchSpaceFact();
   } catch (error) {
-    console.error('Fact API failed:', error);
+    console.error('Space fact API failed:', error);
     factTextEl.textContent = getFallbackFact();
   } finally {
     factProgressEl.classList.remove('header__fact-progress--active');
   }
+}
+
+async function fetchSpaceFact() {
+  const response = await fetch('https://api.le-systeme-solaire.net/rest/bodies/?filter[]=isPlanet,eq,true');
+  if (!response.ok) {
+    throw new Error('Planet facts API request failed.');
+  }
+
+  const data = await response.json();
+  if (!Array.isArray(data.bodies) || data.bodies.length === 0) {
+    throw new Error('Planet facts API returned no records.');
+  }
+
+  const planet = data.bodies[Math.floor(Math.random() * data.bodies.length)];
+  const planetName = planet.englishName || planet.name || 'This planet';
+  const radius = Number(planet.meanRadius);
+  const gravity = Number(planet.gravity);
+  const moonCount = Array.isArray(planet.moons) ? planet.moons.length : 0;
+
+  const apiFacts = [];
+  if (!Number.isNaN(radius) && radius > 0) {
+    apiFacts.push(`${planetName} has an average radius of about ${Math.round(radius).toLocaleString()} km.`);
+  }
+  if (!Number.isNaN(gravity) && gravity > 0) {
+    apiFacts.push(`${planetName} has a surface gravity of roughly ${gravity.toFixed(2)} m/s².`);
+  }
+  if (moonCount > 0) {
+    apiFacts.push(`${planetName} has ${moonCount} known moon${moonCount === 1 ? '' : 's'}.`);
+  }
+
+  return apiFacts.length > 0
+    ? apiFacts[Math.floor(Math.random() * apiFacts.length)]
+    : getFallbackFact();
 }
 
 function getFallbackFact() {

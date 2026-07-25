@@ -28,7 +28,7 @@ The styling uses BEM naming conventions and a NASA-inspired palette with strong 
 This app relies on two APIs:
 
 - **NASA APOD API:** Fetches astronomy images and videos for 9 consecutive days based on the selected end date.
-- **Random facts API:** Retrieves space-themed trivia for the header "Did you know?" section each time the gallery is refreshed.
+- **Le Systeme Solaire API:** Retrieves live planetary data used to generate the header "Did you know?" space facts each time the gallery is refreshed.
 
 The API calls are made directly from the browser using modern `fetch` and `async/await` patterns.
 
